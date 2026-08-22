@@ -26,16 +26,6 @@
         <div class="param-group" id="param-rate-annual"></div>
       </div>
 
-      <div class="panel__section" id="persons-section">
-        <h2 class="panel__heading">Persons</h2>
-        <div class="panel__toolbar">
-          <label for="persons-count">Number of persons</label>
-          <input type="number" id="persons-count" min="1" max="6" value="2">
-        </div>
-        <div id="person-cards"></div>
-        <div id="percentage-warning" class="warning-banner" hidden></div>
-      </div>
-
       <div class="panel__section" id="currency-section">
         <h2 class="panel__heading">Currency</h2>
         <div class="currency-switcher" id="currency-switcher">
@@ -66,6 +56,16 @@
         <span class="kpi-card__label">Total Interest</span>
         <span class="kpi-card__value" id="kpi-interest-value">—</span>
       </div>
+    </section>
+
+    <section class="persons glass-panel" id="persons-section">
+      <h2 class="panel__heading">Persons</h2>
+      <div class="panel__toolbar">
+        <label for="persons-count">Number of persons</label>
+        <input type="number" id="persons-count" min="1" max="6" value="2">
+      </div>
+      <div id="person-cards"></div>
+      <div id="percentage-warning" class="warning-banner" hidden></div>
     </section>
   </main>
 

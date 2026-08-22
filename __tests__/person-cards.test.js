@@ -64,9 +64,9 @@ describe('initPersonCards', () => {
     // First set uneven percentages
     const pctInputs = container.querySelectorAll('input[type="number"]')
     pctInputs[0].value = 70
-    pctInputs[0].dispatchEvent(new Event('change'))
+    pctInputs[0].dispatchEvent(new Event('input'))
     pctInputs[1].value = 20
-    pctInputs[1].dispatchEvent(new Event('change'))
+    pctInputs[1].dispatchEvent(new Event('input'))
 
     const distBtn = container.querySelector('.person-card__distribute')
     distBtn.click()
@@ -98,7 +98,7 @@ describe('initPersonCards', () => {
   test('editing name updates state', () => {
     const nameInput = container.querySelector('.person-card__name')
     nameInput.value = 'Ana'
-    nameInput.dispatchEvent(new Event('change'))
+    nameInput.dispatchEvent(new Event('input'))
 
     const state = store.getState()
     expect(state.persons[0].name).toBe('Ana')
@@ -108,7 +108,7 @@ describe('initPersonCards', () => {
     const extraInputs = container.querySelectorAll('input[type="number"]')
     // Second number input in first card is extra
     extraInputs[1].value = 500
-    extraInputs[1].dispatchEvent(new Event('change'))
+    extraInputs[1].dispatchEvent(new Event('input'))
 
     const state = store.getState()
     expect(state.persons[0].extra).toBe(500)
@@ -132,5 +132,32 @@ describe('initPersonCards', () => {
 
     // Should not have a remove button for the last person
     expect(container.querySelector('.person-card__remove')).toBeNull()
+  })
+
+  test('each card has a contribution display', () => {
+    const card = container.querySelector('.person-card')
+    expect(card.querySelector('.person-card__contribution')).not.toBeNull()
+  })
+
+  test('contribution displays live amount', () => {
+    const contributions = container.querySelectorAll('.person-card__contribution')
+    // With default 50/50 split and installment ~2,124.70 (100k, 1% monthly, 60 months)
+    // Each person should show ~1,062.35
+    expect(contributions[0].textContent).not.toBe('—')
+    expect(contributions[0].textContent).toContain('$')
+  })
+
+  test('focus preserved after structural rebuild', () => {
+    const nameInput = container.querySelector('.person-card__name')
+    nameInput.focus()
+    nameInput.setSelectionRange(3, 3)
+
+    // Trigger structural rebuild by adding a person
+    const addBtn = container.querySelector('.person-card__add')
+    addBtn.click()
+
+    // Focus should be restored to the first card's name input
+    const newNameInput = container.querySelector('.person-card__name')
+    expect(document.activeElement).toBe(newNameInput)
   })
 })

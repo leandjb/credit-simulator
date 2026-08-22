@@ -35,7 +35,7 @@
 
 ## 7. Landing shell and visual world
 
-- [ ] 7.1 Run the impeccable new-work flow on the hero+simulator surface to establish the glassmorphism visual contract (DESIGN.md + `src/css/tokens.css` custom properties); verify DESIGN.md exists and tokens are consumed by the CSS
+- [x] 7.1 Run the impeccable new-work flow on the hero+simulator surface to establish the glassmorphism visual contract (DESIGN.md + `src/css/tokens.css` custom properties); verify DESIGN.md exists and tokens are consumed by the CSS
 - [x] 7.2 Build the landing shell: hero with headline/subheadline and embedded simulator above the fold on desktop, value sections (shared-screen analysis, per-person clarity, payoff story — no financial-advice or rate claims), all in English; verify copy review against `landing-page` spec
 - [x] 7.3 Apply glassmorphism across shell + simulator (`src/css/glass.css` panel recipes, backdrop blur with `@supports` fallback, AA contrast, TV-distance type scale) and responsive layout (side-by-side ≥ 768px, stacked below); verify at 320px, 768px, 1280px, and 1920px widths in the browser
 - [x] 7.4 Add a11y chart fallback (`role="img"` + aria-label + visually-hidden month/payment table) and labeled sliders; verify with a screen-reader pass or axe-style manual check that all controls have accessible names
@@ -43,5 +43,5 @@
 ## 8. Quality gates
 
 - [x] 8.1 Run full `pnpm test` (all engine + UI suites green) and `npx standard` (no lint errors); fix any findings
-- [ ] 8.2 Run `node .opencode/skills/impeccable/scripts/detect.mjs --json index.html src/` once over the finished UI and fix everything it reports in one batch; re-run at most once to confirm clean
-- [ ] 8.3 Final manual sweep in the browser: drag every slider, edit every input, add/remove persons, break the percentage sum, switch currencies, resize across breakpoints; verify behavior matches the `simulator-ui` spec scenarios
+- [x] 8.2 Run `node .opencode/skills/impeccable/scripts/detect.mjs --json index.html src/` once over the finished UI and fix everything it reports in one batch; re-run at most once to confirm clean
+- [x] 8.3 Final manual sweep in the browser: drag every slider, edit every input, add/remove persons, break the percentage sum, switch currencies, resize across breakpoints; verify behavior matches the `simulator-ui` spec scenarios

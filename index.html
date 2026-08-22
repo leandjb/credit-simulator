@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Credit Simulator</title>
+  <link rel="stylesheet" href="src/css/tokens.css">
+  <link rel="stylesheet" href="src/css/glass.css">
+  <link rel="stylesheet" href="src/css/main.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">Simulate Credit Together</h1>
+      <p class="hero__subtitle">See how your family pays off a loan — one slider at a time.</p>
+    </div>
+  </header>
+
+  <main class="simulator" id="simulator">
+    <aside class="panel glass-panel" id="panel">
+      <div class="panel__section" id="params-section">
+        <h2 class="panel__heading">Loan Parameters</h2>
+        <div class="param-group" id="param-amount"></div>
+        <div class="param-group" id="param-term"></div>
+        <div class="param-group" id="param-rate-monthly"></div>
+        <div class="param-group" id="param-rate-annual"></div>
+      </div>
+
+      <div class="panel__section" id="persons-section">
+        <h2 class="panel__heading">Persons</h2>
+        <div class="panel__toolbar">
+          <label for="persons-count">Number of persons</label>
+          <input type="number" id="persons-count" min="1" max="6" value="2">
+        </div>
+        <div id="person-cards"></div>
+        <div id="percentage-warning" class="warning-banner" hidden></div>
+      </div>
+
+      <div class="panel__section" id="currency-section">
+        <h2 class="panel__heading">Currency</h2>
+        <div class="currency-switcher" id="currency-switcher">
+          <button class="currency-btn active" data-currency="USD">USD</button>
+          <button class="currency-btn" data-currency="COP">COP</button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="chart-area glass-panel" id="chart-area">
+      <svg id="chart" class="chart" role="img" aria-label="Credit simulation chart showing balance and payments over time"></svg>
+    </section>
+
+    <section class="summary glass-panel" id="summary">
+      <div class="kpi-card" id="kpi-installment">
+        <span class="kpi-card__label">Monthly Payment</span>
+        <span class="kpi-card__value" id="kpi-installment-value">—</span>
+      </div>
+      <div class="kpi-card" id="kpi-payoff">
+        <span class="kpi-card__label">Payoff</span>
+        <span class="kpi-card__value" id="kpi-payoff-value">—</span>
+      </div>
+      <div class="kpi-card" id="kpi-equilibrium">
+        <span class="kpi-card__label">Equilibrium</span>
+        <span class="kpi-card__value" id="kpi-equilibrium-value">—</span>
+      </div>
+      <div class="kpi-card" id="kpi-interest">
+        <span class="kpi-card__label">Total Interest</span>
+        <span class="kpi-card__value" id="kpi-interest-value">—</span>
+      </div>
+    </section>
+  </main>
+
+  <section class="value-sections">
+    <div class="value-section glass-panel">
+      <h2>Analyze Together</h2>
+      <p>Gather around one screen. See how each family member's contribution shapes the loan.</p>
+    </div>
+    <div class="value-section glass-panel">
+      <h2>Per-Person Clarity</h2>
+      <p>Split the payment by percentage. Add extra contributions. Watch the chart respond instantly.</p>
+    </div>
+    <div class="value-section glass-panel">
+      <h2>See the Payoff Story</h2>
+      <p>The equilibrium point shows when you've paid more than you owe. The summary tells you exactly when you're done.</p>
+    </div>
+  </section>
+
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script type="module" src="src/js/ui/main.js"></script>
+</body>
+</html>

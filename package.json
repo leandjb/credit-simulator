@@ -1,5 +1,29 @@
 {
-	"dependencies": {
-		"@fission-ai/openspec": "^1.10.0"
-	}
+  "name": "credit-simulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "keywords": [],
+  "author": "Leandro Barros",
+  "license": "GPLv3",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.22.0",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "dependencies": {
+    "@fission-ai/openspec": "1.10.0",
+    "impeccable": "3.6.0",
+    "standard": "17.1.2"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1"
+  }
 }
